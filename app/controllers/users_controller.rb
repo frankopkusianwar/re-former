@@ -6,13 +6,12 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = 'Your profile was created.'
     else
-        @user.errors.full_messages.each do |msg|
+      @user.errors.full_messages.each do |msg|
         words += "#{msg} "
-        end
-        flash[:error] = words
+      end
+      flash[:error] = words
     end
     redirect_to new_user_path
-
   end
 
   def edit
@@ -36,6 +35,7 @@ class UsersController < ApplicationController
   end
 
   private
+  
   def create_params
     params.require(:user).permit(:username, :email, :password)
   end
