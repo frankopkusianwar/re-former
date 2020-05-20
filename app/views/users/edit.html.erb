@@ -1,3 +1,5 @@
+<h2> Edit your profile </h2>
+
 <%# <form action="/users" method="post" accept-charset="UTF-8"> %>
   <%# <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %><%#%"> %>
   <%# <label for="username">Username</label>
@@ -18,14 +20,6 @@
   <%# <%= password_field_tag(:password) %> <%#%>
   <%# <%= submit_tag("create user") %> <%#%>
 <%# <% end %> <%#%>
-<ul>
-<% errors(@user).each do |msg| %>
-  
-    <li>
-      msg
-    </li>
-<% end %>
-</ul>
 
 <%= form_for @user do |f|%>
   <%= f.label :username %>
@@ -36,14 +30,3 @@
   <%= f.password_field :email %>
   <%= f.submit "Create" %>
 <% end %>
-
-<h1>Here are a list of all users: </h1>
-<div class="flex">
-  <% users_array(@users).each do |user| %>
-    <p class=''> <%= user.username%> </p>
-    
-    <%= link_to 'Edit profile', edit_user_path(user.id) %>
-    <%= link_to 'Show profile', user_path(user.id) %>
-
-  <% end %>
-</div>
