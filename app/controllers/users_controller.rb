@@ -1,17 +1,14 @@
 class UsersController < ApplicationController
   def create
-    @user = User.new(create_params)
-    words = ''
+    @user = User.new(user_params)
+    @users = User.all
     # @user = User.new(username: params[:username], email: params[:email], password: params[:password])
     if @user.save
       flash[:success] = 'Your profile was created.'
+      redirect_to new_user_path
     else
-      @user.errors.full_messages.each do |msg|
-        words += "#{msg} "
-      end
-      flash[:error] = words
+      render 'new'
     end
-    redirect_to new_user_path
   end
 
   def edit
@@ -21,7 +18,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     # @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-    if @user.update(create_params)
+    if @user.update(user_params)
       flash[:success] = 'Your profile was edited.'
       redirect_to new_user_path
     else
@@ -36,7 +33,7 @@ class UsersController < ApplicationController
 
   private
 
-  def create_params
+  def user_params
     params.require(:user).permit(:username, :email, :password)
   end
 end

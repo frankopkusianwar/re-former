@@ -1,4 +1,4 @@
-<%# <form action="/users" method="post" accept-charset="UTF-8"> %>
+<%# <form action= users_path method="post" accept-charset="UTF-8"> %>
   <%# <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %><%#%"> %>
   <%# <label for="username">Username</label>
   <input type="text" name="user[username]" id="username" placeholder="username">
@@ -9,7 +9,7 @@
   <input type="submit" value="submit">
 </form> %>
 
-<%# <%= form_tag('/users', method: "post") do %> <%#%%>
+<%# <%= form_tag(users_path, method: "post") do %> <%#%%>
   <%# <%= label_tag(:username, "username") %> <%#%>
   <%# <%= text_field_tag(:username) %> <%#%>
   <%# <%= label_tag(:email, "email") %> <%#%>
@@ -22,7 +22,7 @@
 <% errors(@user).each do |msg| %>
   
     <li>
-      msg
+      <%= msg %>
     </li>
 <% end %>
 </ul>
@@ -33,7 +33,7 @@
   <%= f.label :email %>
   <%= f.email_field :email %>
   <%= f.label :password %>
-  <%= f.password_field :email %>
+  <%= f.password_field :password %>
   <%= f.submit "Create" %>
 <% end %>
 
