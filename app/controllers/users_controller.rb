@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @users = User.all
-    # @user = User.new(username: params[:username], email: params[:email], password: params[:password])
     if @user.save
       flash[:success] = 'Your profile was created.'
       redirect_to new_user_path
@@ -17,7 +16,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    # @user = User.new(username: params[:username], email: params[:email], password: params[:password])
     if @user.update(user_params)
       flash[:success] = 'Your profile was edited.'
       redirect_to new_user_path

@@ -1,26 +1,5 @@
 <h2> Edit your profile </h2>
 
-<%# <form action="/users" method="post" accept-charset="UTF-8"> %>
-  <%# <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %><%#%"> %>
-  <%# <label for="username">Username</label>
-  <input type="text" name="user[username]" id="username" placeholder="username">
-  <label for="email">Email</label>
-  <input type="email" name="user[email]" id="email" placeholder="email">
-  <label for="password">username</label>
-  <input type="password" name="user[password]" id="password" placeholder="password">
-  <input type="submit" value="submit">
-</form> %>
-
-<%# <%= form_tag('/users', method: "post") do %> <%#%%>
-  <%# <%= label_tag(:username, "username") %> <%#%>
-  <%# <%= text_field_tag(:username) %> <%#%>
-  <%# <%= label_tag(:email, "email") %> <%#%>
-  <%# <%= email_field_tag(:email) %> <%#%>
-  <%# <%= label_tag(:password, "password") %> <%#%>
-  <%# <%= password_field_tag(:password) %> <%#%>
-  <%# <%= submit_tag("create user") %> <%#%>
-<%# <% end %> <%#%>
-
 <%= form_for @user do |f|%>
   <%= f.label :username %>
   <%= f.text_field :username %>
