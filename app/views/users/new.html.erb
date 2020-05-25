@@ -1,0 +1,28 @@
+<ul>
+<% errors(@user).each do |msg| %>
+  
+    <li>
+      <%= msg %>
+    </li>
+<% end %>
+</ul>
+
+<%= form_for @user do |f|%>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.submit "Create" %>
+<% end %>
+
+<h1>Here are a list of all users: </h1>
+<div class="flex">
+  <% users_array(@users).each do |user| %>
+    <p class=''> <%= user.username%> </p>
+    
+    <%= link_to 'Edit profile', edit_user_path(user.id) %>
+
+  <% end %>
+</div>
